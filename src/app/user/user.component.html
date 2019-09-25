@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+
+
+<form [formGroup]="formNew" action="POST">
+
+    <div class="container card">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="nome">Nome:</label>
+                <input class="form-control" formControlName="nome_Funcionario" type="text">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="nome">Email:</label>
+                <input class="form-control" formControlName="email_Funcionario" type="text">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="nome">Telefone:</label>
+                <input class="form-control" formControlName="telefone_Funcionario" type="text">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="nome">Cargo:</label>
+                <input class="form-control" formControlName="cargo_Funcionario" type="text">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="nome">Usuario:</label>
+                <input class="form-control" formControlName="usuario" type="text">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="nome">Senha:</label>
+                <input class="form-control" formControlName="senha" type="text">
+            </div>
+            <input class="btn btn-danger btn-large btn-block btn-lg btn-block" type="submit">
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Email</td>
+                <td>Telefone</td>
+                <td>Cargo</td>
+                <td>Usuario</td>
+                <td>Senha</td>
+            </tr>
+        </thead>]
+        <tbody>
+            <tr *ngFor="let item of logins">
+                <td> {{item.id_funcionario}}</td>
+                <td> {{item.id_funcionario}}</td>
+                <td> {{item.nome_Funcionario}} </td>
+                <td> {{item.email_Funcionario}} </td>
+                <td> {{item.telefone_Funcionario}} </td>
+                <td> {{item.cargo_Funcionario}} </td>
+                <td> {{item.usuario}} </td>
+                <td> {{item.senha}}</td>
+            </tr>
+        </tbody>
+    </table>
+</form>
