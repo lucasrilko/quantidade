@@ -33,6 +33,27 @@ export class UserComponent implements OnInit {
   
   getLogin(){
 
-    this.loginService.getLogin().subscribe(value => this.logins = value)
+    this.loginService.getLogin().subscribe(value => {
+      this.logins = value
+      console.log(value)
+    
+    })
+  }
+  postLogin(){
+
+    console.log(this.formNew.getRawValue())
+
+    this.loginService.postLogin(this.formNew.getRawValue()).subscribe(
+
+      (data)=>{},
+      (err)=>{console.log(err)},
+      () =>{
+
+
+        this.getLogin()
+        this.formNew.reset()
+      }
+    )
+
   }
 }

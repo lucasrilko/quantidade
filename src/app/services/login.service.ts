@@ -19,4 +19,9 @@ export class LoginService {
   getLogin(): Observable <Usuario[]> {
     return this.http.get<any[]>(this.productNameURL)
   }
+  postLogin(login: Usuario) {
+    let url = 'http://localhost:9095/login'
+    
+    return this.http.post<Usuario>(url,login)
+  }
 }

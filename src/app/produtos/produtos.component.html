@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
 
-<div class="card container">
+<div style="margin-top: 3%;" class="card container"  style="padding: 20px">
     <div class="card-body">
         <form [formGroup]="formNew" (ngSubmit)="registrarProduto()">
-            <div>
+            <div class="card" style="padding: 30px">
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="NomeProd">Nome Produto</label>
@@ -35,17 +35,17 @@
                         <input class="form-control" formControlName="id_FornecedorProduto" type="number">
                     </div>
                 </div>
+            <input [disabled]="formNew.errors" class="btn btn-success btn-sm btn-block" type="submit">
+
             </div>
 
-            <input [disabled]="formNew.errors" class="btn btn-success btn-lg btn-block" type="submit">
         </form>
     </div>
 
-    <table class="table table-sm table-bordered table-responsive table-striped">
+    <table class="table table-sm table-bordered table-responsive ">
         <thead>
 
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Valor Custo</th>
                 <th scope="col">Valor Venda</th>
@@ -61,14 +61,13 @@
 
             <tr *ngFor="let produto of produtos">
 
-                <td>{{produto.id_Produto}}</td>
                 <td>{{produto.nome_Produto}}</td>
                 <td>{{produto.valor_Custo}}</td>
                 <td>{{produto.valor_Venda}}</td>
                 <td>{{produto.qtd_Produto}}</td>
                 <td>{{produto.descricao_Produto}}</td>
                 <td>{{produto.id_FornecedorProduto}}</td>
-                <td><button type="button"(click)="deleteProduto(produto.id_Produto)" class="btn btn-danger">Del</button></td>
+                <td><button type="button"(click)="deleteProduto(produto.id_Produto,produto.qtd_Produto)" class="btn btn-sm btn-danger">Del</button></td>
             </tr>
         </tbody>
 

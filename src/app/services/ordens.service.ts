@@ -18,7 +18,6 @@ export class OrdensService {
     let url = 'http://localhost:9095/produtos'
     return this.http.get<produto[]>(url)
   }
-
   postProduto(form: produto) {
     let url = 'http://localhost:9095/produtos'
     return this.http.post<produto>(url,form)
@@ -27,4 +26,5 @@ export class OrdensService {
     let url = `http://localhost:9095/produtos/${id}`
     return this.http.delete<any>(url)
   }
+  
 }

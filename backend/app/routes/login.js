@@ -16,4 +16,7 @@ module.exports = (application) => {
     application.get('/produtos', (req, res) => {
         application.app.controllers.login.getProdutos(application, req, res);
     });
+    application.post('/login', (req, res) => {
+        application.app.controllers.login.postLogin(application, req, res);
+    });
 }
