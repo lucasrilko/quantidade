@@ -12,6 +12,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { LoginModule } from './login/login.module';
 import { UserComponent } from './user/user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -26,9 +28,11 @@ import { UserComponent } from './user/user.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     LoginModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    ToastrModule.forRoot()
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OrdensService } from '../services/ordens.service';
 import { produto } from './models/produto_model'
+import { ToastrService } from 'ngx-toastr';
 
 // import { ReactiveFormsModule } from '@angular/forms';
 
@@ -16,7 +17,7 @@ export class ProdutosComponent implements OnInit {
   public produto: produto
   public produtos: produto[] = []
   constructor(
-
+    private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private orderServices: OrdensService
 
@@ -24,7 +25,7 @@ export class ProdutosComponent implements OnInit {
 
   ngOnInit() {
 
-
+    this.showSuccess();    
     this.formNew = this.formBuilder.group({
 
       nome_Produto: [null, [Validators.required]],
@@ -38,6 +39,12 @@ export class ProdutosComponent implements OnInit {
     this.getProdutos()
 
   }
+
+  showSuccess() {
+    this.toastr.info(
+      'Radiador Volkswagen: 5 unidades','Níveis de estoque');
+  }
+
   registrarProduto() {
 
     let form = this.formNew.getRawValue()
